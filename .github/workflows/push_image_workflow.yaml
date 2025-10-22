@@ -34,3 +34,6 @@ jobs:
         run: |
           sed -i "s|#__#IMAGE_NAME#__#|$IMAGE_NAME|g" manifests/deployment.yaml
           sed -i "s|#__#IMAGE_TAG#__#|$TAG|g" manifests/deployment.yaml
+
+      - name: Show manifest after update
+        run: cat manifests/deployment.yaml
