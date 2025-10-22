@@ -2,8 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: todo-ui-ingress
-  annotations:
-    kubernetes.io/ingress.class: addon-http-application-routing
+  namespace: app
 spec:
   ingressClassName: nginx
   rules:
