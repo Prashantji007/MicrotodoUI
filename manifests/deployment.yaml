@@ -17,6 +17,6 @@ spec:
       - name: todo-ui
         image: acrtodoappdev01.azurecr.io/microtodoui:8
         ports:
-        - containerPort: 8000
+        - containerPort: 80
       imagePullSecrets:
         - name: acr-creds
