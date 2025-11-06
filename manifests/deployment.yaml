@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: todo-ui
-        image: acrtodoappdev01.azurecr.io/microtodoui:15
+        image: acrtodoappdev01.azurecr.io/microtodoui:16
         ports:
         - containerPort: 80
       imagePullSecrets:
