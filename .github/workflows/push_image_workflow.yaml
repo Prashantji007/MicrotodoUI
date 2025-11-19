@@ -57,5 +57,11 @@ jobs:
 
       - name: Package Helm chart
         run: |
-          helm package  Helm/UI-Task
-          helm push todo-0.1.0.tgz oci://${{ env.ACR_LOGIN_SERVER }}/Helm/UI-Task/
+          helm package Helm/UI-Task
+          FILE=$(ls *.tgz)
+          echo "PACKAGED_CHART=$FILE" >> $GITHUB_ENV
+      
+      - name: Push Helm Chart to ACR
+        run: |
+          helm push $PACKAGED_CHART oci://${{ env.ACR_LOGIN_SERVER }}/helm/
+
