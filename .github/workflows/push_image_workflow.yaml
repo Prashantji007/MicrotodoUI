@@ -57,5 +57,5 @@ jobs:
 
       - name: Package Helm chart
         run: |
-          helm package helm/todo
-          helm push todo-0.1.0.tgz oci://${{ env.ACR_LOGIN_SERVER }}/helm/todo
+          helm package  Helm/UI-Task
+          helm push todo-0.1.0.tgz oci://${{ env.ACR_LOGIN_SERVER }}/Helm/UI-Task/
