@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{.Release.Name}}-todo-ui
+  name: {{.Release.Name}}-todo-get-task
   namespace: app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{.Release.Name}}-todo-ui
+      app: {{.Release.Name}}-get-task
   template:
     metadata:
       labels:
-        app: {{.Release.Name}}-todo-ui
+        app: {{.Release.Name}}-get-task
     spec:
       containers:
-      - name: {{.Release.Name}}-todo-ui
+      - name: {{.Release.Name}}-get-task
         #image: acrtodoappdev01.azurecr.io/microtodoui:17
         image: "acrtodoappdev01.azurecr.io/{{.Values.image}}:{{.Values.tag}}"
         imagePullPolicy: Always
