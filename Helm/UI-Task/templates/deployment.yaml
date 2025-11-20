@@ -16,7 +16,7 @@ spec:
       containers:
       - name: {{.Release.Name}}-todo-ui
         #image: acrtodoappdev01.azurecr.io/microtodoui:17
-        image: "{{.Values.image}}:{{.Values.tag}}"
+        image: "acrtodoappdev01.azurecr.io/{{.Values.image}}:{{.Values.tag}}"
         imagePullPolicy: Always
         ports:
         - containerPort: 80
