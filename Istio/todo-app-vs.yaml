@@ -1,0 +1,52 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: todo-app-vs
+  namespace: app
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - todo-app-gateway
+  http:
+
+
+
+  # Add-task API
+  - match:
+      - uri:
+          prefix: "/add-task"
+    route:
+      - destination:
+          host: todo-app-add-task-svc.app.svc.cluster.local
+          port:
+            number: 80
+
+  # Delete-task API
+  - match:
+      - uri:
+          prefix: "/delete-task"
+    route:
+      - destination:
+          host: todo-app-delete-task-svc.app.svc.cluster.local
+          port:
+            number: 80
+
+  # Get-task API
+  - match:
+      - uri:
+          prefix: "/get-task"
+    route:
+      - destination:
+          host: todo-app-get-task-svc.app.svc.cluster.local
+          port:
+            number: 80
+  # UI route
+  - match:
+      - uri:
+          prefix: "/"
+    route:
+      - destination:
+          host: todo-app-todo-ui-svc.app.svc.cluster.local
+          port:
+            number: 80
